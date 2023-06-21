@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * push - Add a new node to the top of the stack.
+ * @head: Pointer to the head of the stack.
+ * @n: The value to be stored in the new node.
+ *
+ * Return: Pointer to the newly added node.
+ */
 stack_t *push(stack_t **head, int n)
 {
     stack_t *new;
@@ -19,7 +26,11 @@ stack_t *push(stack_t **head, int n)
 	return (new);
 }
 
-
+/**
+ * pall - Print all elements of the stack.
+ * @head: Pointer to the head of the stack.
+ * @line: The line number in the input file.
+ */
 void pall( stack_t **head, unsigned int line)
 {
     stack_t *h = *head;
@@ -31,7 +42,11 @@ void pall( stack_t **head, unsigned int line)
 	for (; h; h = h->next)
 		fprintf(stdout, "%d\n", h->n);
 }
-
+/**
+ * pint - Print the value at the top of the stack.
+ * @head: Pointer to the head of the stack.
+ * @line: The line number in the input file.
+ */
 void pint( stack_t **head, unsigned int line)
 {
     stack_t *h = *head;
@@ -42,7 +57,11 @@ void pint( stack_t **head, unsigned int line)
     }
     fprintf(stdout, "%d\n", h->n);
 }
-
+/**
+ * pop - Remove the top element of the stack.
+ * @head: Pointer to the head of the stack.
+ * @line: The line number in the input file.
+ */
 void pop(stack_t **head, unsigned int line)
 {
     stack_t *dlt = *head;
