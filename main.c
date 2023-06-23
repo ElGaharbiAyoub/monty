@@ -18,50 +18,60 @@ buf_struct *make_struct(char *argv[])
 }
 
 
-
+/**
+ * readLinesFromFile - Reads lines from a file and stores them in bf->list_cmd.
+ * @filename: The name of the file to read.
+ * @bf: Pointer to the buf_struct object.
+ */
 
 void readLinesFromFile(char *filename, buf_struct *bf)
 {
-    char* line = NULL;
-    FILE *of;
-    int i = 0;
-    size_t  lineLength = 0;
-    ssize_t bytesRead;
+	char *line = NULL;
+	FILE *of;
+	int i = 0;
+	size_t  lineLength = 0;
+	ssize_t bytesRead;
 
-    of = fopen(filename, "r");
+	of = fopen(filename, "r");
 
-    if (of == NULL)
-    {
-        printf("Error: Can't open file %s\n", filename);
-        exit(EXIT_FAILURE);
-    }
-    while ((bytesRead = getline(&line, &lineLength, of)) != -1)
-    {
-        bf->list_cmd[i] = line;
-        i++;
-    }
+	if (of == NULL)
+	{
+		printf("Error: Can't open file %s\n", filename);
+		exit(EXIT_FAILURE);
+	}
+	while ((bytesRead = getline(&line, &lineLength, of)) != -1)
+	{
+		bf->list_cmd[i] = line;
+		i++;
+	}
 
-    free(line);
-    fclose(of);
+	free(line);
+	fclose(of);
 }
 
-
+/**
+ * main - Entry point of the program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of strings containing the command-line arguments.
+ *
+ * Return: 0 on success, or an exit status on failure.
+ */
 
 int main(int argc, char *argv[])
 {
-    char *filename;
-    buf_struct *bf;
+	char *filename;
+	buf_struct *bf;
 
 	bf = make_struct(argv);
 
-    if (argc != 2)
-    {
-        printf("USAGE: monty file\n");
+	if (argc != 2)
+	{
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
-    }
-    filename = argv[1];
-    readLinesFromFile(filename, bf);
-    execute_fun(bf);
-    
-    return (0);
+	}
+	filename = argv[1];
+	readLinesFromFile(filename, bf);
+	execute_fun(bf);
+
+	return (0);
 }

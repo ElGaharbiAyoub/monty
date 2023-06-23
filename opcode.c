@@ -9,18 +9,18 @@
  */
 stack_t *push(stack_t **head, int n)
 {
-    stack_t *new;
+	stack_t *new;
 
-    new = malloc(sizeof(stack_t));
-    if (!new)
-    {
-        if (*head != NULL)
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		if (*head != NULL)
 			free_stack(*head);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
-    }
+	}
 
-    new->n = n;
+	new->n = n;
 	new->prev = NULL;
 	new->next = *head;
 
@@ -36,10 +36,11 @@ stack_t *push(stack_t **head, int n)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pall( stack_t **head, unsigned int line)
+void pall(stack_t **head, unsigned int line)
 {
-    stack_t *h = *head;
-    if (!h)
+	stack_t *h = *head;
+
+	if (!h)
 	{
 		fprintf(stderr, "L%d: can't pall, stack empty\n", line);
 		exit(EXIT_FAILURE);
@@ -52,15 +53,16 @@ void pall( stack_t **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pint( stack_t **head, unsigned int line)
+void pint(stack_t **head, unsigned int line)
 {
-    stack_t *h = *head;
-    if (!head)
-    {
+	stack_t *h = *head;
+
+	if (!head)
+	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
-    }
-    fprintf(stdout, "%d\n", h->n);
+	}
+	fprintf(stdout, "%d\n", h->n);
 }
 /**
  * pop - Remove the top element of the stack.
@@ -69,13 +71,13 @@ void pint( stack_t **head, unsigned int line)
  */
 void pop(stack_t **head, unsigned int line)
 {
-    stack_t *dlt = *head;
+	stack_t *dlt = *head;
 
-    if (!dlt)
-    {
-        fprintf(stderr, "L%d: can't pop an empty stack\n", line);
+	if (!dlt)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
-    }
-    *head = dlt->next;
-    free(dlt);
+	}
+	*head = dlt->next;
+	free(dlt);
 }
