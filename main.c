@@ -30,7 +30,7 @@ void readLinesFromFile(char *filename, buf_struct *bf)
 	FILE *of;
 	int i = 0;
 	size_t  lineLength = 0;
-	ssize_t bytesRead;
+	ssize_t bytesRead = 1;
 
 	of = fopen(filename, "r");
 
@@ -39,13 +39,14 @@ void readLinesFromFile(char *filename, buf_struct *bf)
 		printf("Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
-	while ((bytesRead = getline(&line, &lineLength, of)) != -1)
+	while (bytesRead > 0)
 	{
+        bytesRead = getline(&line, &lineLength, of);
 		bf->list_cmd[i] = line;
 		i++;
 	}
-
-	free(line);
+    bf->list_cmd[i] = NULL;
+    /*free(line);*/
 	fclose(of);
 }
 

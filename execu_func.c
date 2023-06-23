@@ -13,14 +13,18 @@ void execute_fun(buf_struct *bf)
 		split_line(bf->list_cmd[i], bf);
 		if (strcmp(bf->tok_cmd[0], "push") == 0)
 		{
-			if (!bf->tok_cmd[1] || digits_only(bf->tok_cmd[1]) == 0)
+			if (!bf->tok_cmd[1])
 			{
+				printf("push refu");
 				free_stack(stack);
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
+				printf("%s",bf->tok_cmd[1] );
 				exit(EXIT_FAILURE);
 			}
 			else
+			{
 				push(&stack, atoi(bf->tok_cmd[1]));
+			}
 		}
 		else
 		{
