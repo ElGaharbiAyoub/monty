@@ -41,15 +41,15 @@ void readLinesFromFile(char *filename, buf_struct *bf)
 	}
 	while (i < 1000 && bytesRead > 0)
 	{
-        bytesRead = getline(&line, &lineLength, of);
-        if (bytesRead > 0)
-        {
-            bf->list_cmd[i] = strdup(line);
-            i++;
-        }
+		bytesRead = getline(&line, &lineLength, of);
+		if (bytesRead > 0)
+		{
+			bf->list_cmd[i] = strdup(line);
+			i++;
+		}
 	}
-    /*bf->list_cmd[i] = NULL;*/
-    free(line);
+	/*bf->list_cmd[i] = NULL;*/
+	free(line);
 	fclose(of);
 }
 
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 {
 	char *filename;
 	buf_struct *bf;
-    int i = 0;
+	int i = 0;
 
 	bf = make_struct(argv);
 
@@ -76,18 +76,12 @@ int main(int argc, char *argv[])
 	}
 	filename = argv[1];
 	readLinesFromFile(filename, bf);
-   /* while (bf->list_cmd[i])
-    {
-        printf("%s\n", bf->list_cmd[i]);
-        i++;
-    }*/
-    
+
 	execute_fun(bf);
 
-     /*Free allocated memory*/
-    for (i = 0; bf->list_cmd[i]; i++) {
-        free(bf->list_cmd[i]);
-    }
+	/*Free allocated memory*/
+	for (i = 0; bf->list_cmd[i]; i++)
+		free(bf->list_cmd[i]);
 
 	return (0);
 }

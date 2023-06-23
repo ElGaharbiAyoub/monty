@@ -61,7 +61,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 	};
 
 	int i = 0;
-	
+
 	while (opf[i].opcode)
 	{
 		if (strncmp(s, opf[i].opcode, strlen(opf[i].opcode)) == 0)
