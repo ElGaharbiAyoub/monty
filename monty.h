@@ -3,7 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,4 +36,39 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct buf_struct - Global buffers.
+ * @read_buff: Buffer for read.
+ * @list_cmd: Tokenized read buffer.
+ * @tok_cmd: Tokenize each token from previous split based on spaces.
+ * @argv: Arguments from command line.
+ *
+ * Description: - Buffers used globally throughout files.
+ */
+typedef struct buf_struct
+{
+	char *list_cmd[1000];
+	char *tok_cmd[1000];
+	char **argv;
+} buf_struct;
+
+
+
+char **split_line(char *line, buf_struct *bf);
+int digits_only(char* str);
+buf_struct *make_struct(char *argv[]);
+void readLinesFromFile(char* filename, buf_struct *bf);
+void free_stack(stack_t *head);
+void execute_fun(buf_struct *bf);
+void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
+
+
+
+/* functions monty*/
+
+stack_t *push(stack_t **head, int n);
+void pall( stack_t **head, unsigned int line);
+void pint( stack_t **head, unsigned int line);
+void pop(stack_t **head, unsigned int line);
 #endif
