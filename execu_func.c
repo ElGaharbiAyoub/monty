@@ -7,6 +7,7 @@ void execute_fun(buf_struct *bf)
 {
 	stack_t *stack = NULL;
 	int line_n = 1, i = 0;
+	void (*op_func)(stack_t **stack, unsigned int line_number) = NULL;
 
 	while (bf->list_cmd[i])
 	{
@@ -15,20 +16,17 @@ void execute_fun(buf_struct *bf)
 		{
 			if (!bf->tok_cmd[1])
 			{
-				printf("push refu");
 				free_stack(stack);
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
-				printf("%s",bf->tok_cmd[1] );
 				exit(EXIT_FAILURE);
 			}
 			else
-			{
 				push(&stack, atoi(bf->tok_cmd[1]));
-			}
 		}
 		else
 		{
-			if (get_op_func(bf->tok_cmd[0]) == NULL)
+			op_func = get_op_func(bf->tok_cmd[0]);
+			if (op_func == NULL)
 			{
 				free_stack(stack);
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, bf->tok_cmd[0]);
@@ -50,7 +48,7 @@ void execute_fun(buf_struct *bf)
  * Return: Pointer to the corresponding function, or NULL if opcode not found.
  */
 
-void (*get_op_func(char *s))(stack_t **stack, unsigned int line_n)
+void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t opf[] = {
 		{"pall", pall},
@@ -63,14 +61,14 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_n)
 	};
 
 	int i = 0;
-
+	
 	while (opf[i].opcode)
 	{
-		if (strcmp(s, opf[i].opcode) == 0)
+		if (strncmp(s, opf[i].opcode, strlen(opf[i].opcode)) == 0)
 		{
 			return (opf[i].f);
 		}
 		i++;
 	}
-	return (opf[i].f);
+	return (NULL);
 }
