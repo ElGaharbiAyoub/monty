@@ -11,6 +11,12 @@ void execute_fun(buf_struct *bf)
 
 	while (bf->list_cmd[i])
 	{
+		if (strcmp(bf->list_cmd[i], "\n") == 0)
+		{
+			line_n++;
+			i++;
+			continue;
+		}
 		split_line(bf->list_cmd[i], bf);
 		if (strcmp(bf->tok_cmd[0], "push") == 0)
 		{
