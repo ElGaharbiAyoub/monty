@@ -31,7 +31,7 @@ void readLinesFromFile(char *filename, buf_struct *bf)
 	int i = 0;
 	size_t  lineLength = 0;
 	ssize_t bytesRead = 1;
-    char *copy;
+	char *copy;
 
 	of = fopen(filename, "r");
 
@@ -45,12 +45,12 @@ void readLinesFromFile(char *filename, buf_struct *bf)
 		bytesRead = getline(&line, &lineLength, of);
 		if (bytesRead > 0)
 		{
-            copy = strdup(line);
-            if (copy == NULL)
-            {
-                fprintf(stdout, "Error: malloc failed\n");
-                exit(EXIT_FAILURE);
-            }
+			copy = strdup(line);
+			if (copy == NULL)
+			{
+				printf("Error: Memory allocation failed.\n");
+				exit(EXIT_FAILURE);
+			}
 			bf->list_cmd[i] = copy;
 			i++;
 		}

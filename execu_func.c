@@ -11,7 +11,7 @@ void execute_fun(buf_struct *bf)
 
 	while (bf->list_cmd[i])
 	{
-		if (strcmp(bf->list_cmd[i], "\n") == 0)
+		if (is_empty_line(bf->list_cmd[i]) == 1)
 		{
 			line_n++;
 			i++;
@@ -20,7 +20,7 @@ void execute_fun(buf_struct *bf)
 		split_line(bf->list_cmd[i], bf);
 		if (strcmp(bf->tok_cmd[0], "push") == 0)
 		{
-			if (!bf->tok_cmd[1])
+			if (!bf->tok_cmd[1] || digits_only(bf->tok_cmd[1]) == 0)
 			{
 				free_stack(stack);
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
@@ -57,9 +57,9 @@ void execute_fun(buf_struct *bf)
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t opf[] = {
+		{"pop", pop},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", pop},
 		/* {"nop", nop},*/
 		/* {"swap", swap},*/
 		/* {"add", add},*/
@@ -70,7 +70,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 
 	while (opf[i].opcode)
 	{
-		if (strncmp(s, opf[i].opcode, strlen(opf[i].opcode)) == 0)
+		if (strncmp(s, opf[i].opcode, (strlen(s) - 1)) == 0)
 		{
 			return (opf[i].f);
 		}

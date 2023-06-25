@@ -61,6 +61,7 @@ buf_struct *make_struct(char *argv[]);
 void readLinesFromFile(char* filename, buf_struct *bf);
 void free_stack(stack_t *head);
 void execute_fun(buf_struct *bf);
+int is_empty_line(char *line);
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 
 
