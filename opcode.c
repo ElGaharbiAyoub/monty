@@ -81,3 +81,21 @@ void pop(stack_t **head, unsigned int line)
 	*head = dlt->next;
 	free(dlt);
 }
+/**
+ * swap - Swaps the top two elements of a stack.
+ * @head: Pointer to a pointer to the head of the stack.
+ * @line: Line number of the swap command.
+ */
+void swap(stack_t **head, unsigned int line)
+{
+    int tmp = (*head)->n;
+    
+    if (!head || !*head || !(*head)->next)
+	{
+        free_stack(*head);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+    (*head)->n = (*head)->next->n;
+    (*head)->next->n = tmp;
+}
