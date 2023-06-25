@@ -7,11 +7,11 @@
  *
  * Return: Pointer to the newly added node.
  */
-stack_ty *push(stack_ty **head, int n)
+stack_t *push(stack_t **head, int n)
 {
-	stack_ty *new;
+	stack_t *new;
 
-	new = malloc(sizeof(stack_ty));
+	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		if (*head != NULL)
@@ -36,9 +36,9 @@ stack_ty *push(stack_ty **head, int n)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pall(stack_ty **head, unsigned int line)
+void pall(stack_t **head, unsigned int line)
 {
-	stack_ty *h = *head;
+	stack_t *h = *head;
 
 	if (!head)
 	{
@@ -53,9 +53,9 @@ void pall(stack_ty **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pint(stack_ty **head, unsigned int line)
+void pint(stack_t **head, unsigned int line)
 {
-	stack_ty *h = *head;
+	stack_t *h = *head;
 
 	if (!h)
 	{
@@ -69,9 +69,9 @@ void pint(stack_ty **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pop(stack_ty **head, unsigned int line)
+void pop(stack_t **head, unsigned int line)
 {
-	stack_ty *dlt = *head;
+	stack_t *dlt = *head;
 
 	if (!dlt)
 	{
