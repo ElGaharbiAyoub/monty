@@ -7,11 +7,11 @@
  *
  * Return: Pointer to the newly added node.
  */
-stack_t *push(stack_t **head, int n)
+stack_ty *push(stack_ty **head, int n)
 {
-	stack_t *new;
+	stack_ty *new;
 
-	new = malloc(sizeof(stack_t));
+	new = malloc(sizeof(stack_ty));
 	if (!new)
 	{
 		if (*head != NULL)
@@ -36,9 +36,9 @@ stack_t *push(stack_t **head, int n)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pall(stack_t **head, unsigned int line)
+void pall(stack_ty **head, unsigned int line)
 {
-	stack_t *h = *head;
+	stack_ty *h = *head;
 
 	if (!head)
 	{
@@ -53,9 +53,9 @@ void pall(stack_t **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pint(stack_t **head, unsigned int line)
+void pint(stack_ty **head, unsigned int line)
 {
-	stack_t *h = *head;
+	stack_ty *h = *head;
 
 	if (!h)
 	{
@@ -69,9 +69,9 @@ void pint(stack_t **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pop(stack_t **head, unsigned int line)
+void pop(stack_ty **head, unsigned int line)
 {
-	stack_t *dlt = *head;
+	stack_ty *dlt = *head;
 
 	if (!dlt)
 	{
@@ -88,14 +88,15 @@ void pop(stack_t **head, unsigned int line)
  */
 void swap(stack_t **head, unsigned int line)
 {
-    int tmp = (*head)->n;
-    
-    if (!head || !*head || !(*head)->next)
+	int tmp;
+
+	if (!head || !*head || !(*head)->next)
 	{
-        free_stack(*head);
+		free_stack(*head);
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
-    (*head)->n = (*head)->next->n;
-    (*head)->next->n = tmp;
+	tmp = (*head)->n;
+	(*head)->n = (*head)->next->n;
+	(*head)->next->n = tmp;
 }
