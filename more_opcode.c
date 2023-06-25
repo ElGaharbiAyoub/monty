@@ -55,25 +55,17 @@ void add(stack_t **head, unsigned int line)
  */
 void nop(stack_t **head, unsigned int line)
 {
-	(void) *head;
-	(void) line;
+	(void)*head;
+	(void)line;
 }
 void sub(stack_t **head, unsigned int line)
 {
-	stack_t *top, *second;
-
 	if (!head || !*head || !(*head)->next)
 	{
 		free_stack(*head);
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
-
-	top = *head;
-	second = top->next;
-	top->n -= second->n;
-	top->next = second->next;
-	if (second->next)
-		second->next->prev = top;
-	free(second);
+	(*head)->next->n -= (*head)->n;
+	pop(head, line);
 }
