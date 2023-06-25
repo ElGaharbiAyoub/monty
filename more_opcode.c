@@ -50,11 +50,11 @@ void add(stack_t **head, unsigned int line)
 }
 /**
  * nop - Does nothing.
- * @stack: Unused.
- * @line_n: Unused.
+ * @stack: void.
+ * @line: void.
  */
-void nop(stack_t stack, unsigned int line)
+void nop(stack_t **head, unsigned int line)
 {
-	UNUSED(stack);
-	UNUSED(line);
+	(void) *head;
+	(void) line;
 }
