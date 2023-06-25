@@ -78,4 +78,6 @@ void nop_f(stack_t **head, unsigned int line);
 void add_f(stack_t **head, unsigned int line);
 void sub_f(stack_t **head, unsigned int line);
 void div_f(stack_t **head, unsigned int line);
+void mul_f(stack_t **head, unsigned int line);
+void mod_f(stack_t **head, unsigned int line);
 #endif
