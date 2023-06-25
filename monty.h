@@ -77,5 +77,5 @@ void add(stack_t **head, unsigned int line);
 void nop(stack_t **head, unsigned int line);
 void add(stack_t **head, unsigned int line);
 void sub(stack_t **head, unsigned int line);
-
+void sub(stack_t **head, unsigned int line);
 #endif
