@@ -70,7 +70,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 
 	while (opf[i].opcode)
 	{
-		if (strncmp(s, opf[i].opcode, (strlen(s) - 1)) == 0)
+		if (strncmp(s, opf[i].opcode, (strlen(s))) == 0)
 		{
 			return (opf[i].f);
 		}
