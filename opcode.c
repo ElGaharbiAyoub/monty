@@ -32,7 +32,7 @@ stack_t *push(stack_t **head, int n)
 }
 
 /**
- * pall - Print all elements of the stack.
+ * pall_f - Print all elements of the stack.
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
@@ -49,7 +49,7 @@ void pall_f(stack_t **head, unsigned int line)
 		fprintf(stdout, "%d\n", h->n);
 }
 /**
- * pint - Print the value at the top of the stack.
+ * pint_f - Print the value at the top of the stack.
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
@@ -65,7 +65,7 @@ void pint_f(stack_t **head, unsigned int line)
 	fprintf(stdout, "%d\n", h->n);
 }
 /**
- * pop - Remove the top element of the stack.
+ * pop_f - Remove the top element of the stack.
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
