@@ -40,7 +40,7 @@ void pall(stack_t **head, unsigned int line)
 {
 	stack_t *h = *head;
 
-	if (!h)
+	if (!head)
 	{
 		fprintf(stderr, "L%d: can't pall, stack empty\n", line);
 		exit(EXIT_FAILURE);
