@@ -33,7 +33,7 @@ void mul_f(stack_t **head, unsigned int line)
  */
 void mod_f(stack_t **head, unsigned int line)
 {
-	if (!head || !*head || !(*head)->next)
+	if (!*head || !(*head)->next)
 	{
 		free_stack(*head);
 		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
