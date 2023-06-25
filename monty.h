@@ -69,13 +69,13 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 /* functions monty*/
 
 stack_t *push(stack_t **head, int n);
-void pall( stack_t **head, unsigned int line);
-void pint( stack_t **head, unsigned int line);
-void pop(stack_t **head, unsigned int line);
-void swap(stack_t **head, unsigned int line);
-void add(stack_t **head, unsigned int line);
-void nop(stack_t **head, unsigned int line);
-void add(stack_t **head, unsigned int line);
-void sub(stack_t **head, unsigned int line);
-void div(stack_t **head, unsigned int line);
+void pall_f( stack_t **head, unsigned int line);
+void pint_f( stack_t **head, unsigned int line);
+void pop_f(stack_t **head, unsigned int line);
+void swap_f(stack_t **head, unsigned int line);
+void add_f(stack_t **head, unsigned int line);
+void nop_f(stack_t **head, unsigned int line);
+void add_f(stack_t **head, unsigned int line);
+void sub_f(stack_t **head, unsigned int line);
+void div_f(stack_t **head, unsigned int line);
 #endif

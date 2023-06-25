@@ -36,7 +36,7 @@ stack_t *push(stack_t **head, int n)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pall(stack_t **head, unsigned int line)
+void pall_f(stack_t **head, unsigned int line)
 {
 	stack_t *h = *head;
 
@@ -53,7 +53,7 @@ void pall(stack_t **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pint(stack_t **head, unsigned int line)
+void pint_f(stack_t **head, unsigned int line)
 {
 	stack_t *h = *head;
 
@@ -69,7 +69,7 @@ void pint(stack_t **head, unsigned int line)
  * @head: Pointer to the head of the stack.
  * @line: The line number in the input file.
  */
-void pop(stack_t **head, unsigned int line)
+void pop_f(stack_t **head, unsigned int line)
 {
 	stack_t *dlt = *head;
 

@@ -57,14 +57,14 @@ void execute_fun(buf_struct *bf)
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t opf[] = {
-		{"pop", pop},
-		{"pall", pall},
-		{"pint", pint},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"div", div},
+		{"pop", pop_f},
+		{"pall", pall_f},
+		{"pint", pint_f},
+		{"swap", swap_f},
+		{"add", add_f},
+		{"nop", nop_f},
+		{"sub", sub_f},
+		{"div", div_f},
 		{NULL, NULL}
 	};
 

@@ -4,7 +4,7 @@
  * @head: Pointer to a pointer to the head of the stack.
  * @line: Line number of the swap command.
  */
-void swap(stack_t **head, unsigned int line)
+void swap_f(stack_t **head, unsigned int line)
 {
 	int tmp;
 
@@ -29,7 +29,7 @@ void swap(stack_t **head, unsigned int line)
  * from the stack.
  */
 
-void add(stack_t **head, unsigned int line)
+void add_f(stack_t **head, unsigned int line)
 {
 	stack_t *top, *second;
 
@@ -53,12 +53,12 @@ void add(stack_t **head, unsigned int line)
  * @stack: void.
  * @line: void.
  */
-void nop(stack_t **head, unsigned int line)
+void nop_f(stack_t **head, unsigned int line)
 {
 	(void)*head;
 	(void)line;
 }
-void sub(stack_t **head, unsigned int line)
+void sub_f(stack_t **head, unsigned int line)
 {
 	if (!head || !*head || !(*head)->next)
 	{
@@ -67,9 +67,9 @@ void sub(stack_t **head, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 	(*head)->next->n -= (*head)->n;
-	pop(head, line);
+	pop_f(head, line);
 }
-void div(stack_t **head, unsigned int line)
+void div_f(stack_t **head, unsigned int line)
 {
 	if (!head || !*head || !(*head)->next)
 	{
@@ -84,6 +84,5 @@ void div(stack_t **head, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 	(*head)->next->n /= (*head)->n;
-	pop(head, line);
+	pop_f(head, line);
 }
-
