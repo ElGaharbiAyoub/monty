@@ -60,8 +60,8 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 		{"pop", pop},
 		{"pall", pall},
 		{"pint", pint},
+		{"swap", swap},
 		/* {"nop", nop},*/
-		/* {"swap", swap},*/
 		/* {"add", add},*/
 		{NULL, NULL}
 	};
