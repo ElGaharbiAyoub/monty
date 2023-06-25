@@ -63,6 +63,17 @@ void sub(stack_t **head, unsigned int line)
 	if (!head || !*head || !(*head)->next)
 	{
 		free_stack(*head);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	(*head)->next->n -= (*head)->n;
+	pop(head, line);
+}
+void div(stack_t **head, unsigned int line)
+{
+	if (!head || !*head || !(*head)->next)
+	{
+		free_stack(*head);
 		fprintf(stderr, "L%d: can't div, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
@@ -75,3 +86,4 @@ void sub(stack_t **head, unsigned int line)
 	(*head)->next->n /= (*head)->n;
 	pop(head, line);
 }
+
