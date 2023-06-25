@@ -48,3 +48,31 @@ void mod_f(stack_t **head, unsigned int line)
 	(*head)->next->n %= (*head)->n;
 	pop_f(head, line);
 }
+/**
+ * pchar_f - Prints the ASCII character
+ * represented by the top element of the stack
+ * @head: Double pointer to the head of the stack
+ * @line: Line number
+ *
+ * Description: If the stack is empty,
+ * prints an error message and exits. If the
+ * value of the top element is
+ * not within the range of printable ASCII characters,
+ * prints an error message and exits. Otherwise, prints the ASCII character
+ * represented by the top element of the stack.
+ */
+void pchar_f(stack_t **head, unsigned int line)
+{
+	if (!*head)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty", line);
+		exit(EXIT_FAILURE);
+	}
+	if (((*head)->n < 65 && (*head)->n > 90) &&
+	(((*head)->n < 97) && (*head)->n > 122))
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range", line);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", (char)(*head)->n);
+}

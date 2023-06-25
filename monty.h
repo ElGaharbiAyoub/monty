@@ -80,4 +80,5 @@ void sub_f(stack_t **head, unsigned int line);
 void div_f(stack_t **head, unsigned int line);
 void mul_f(stack_t **head, unsigned int line);
 void mod_f(stack_t **head, unsigned int line);
+void pchar_f(stack_t **head, unsigned int line);
 #endif
