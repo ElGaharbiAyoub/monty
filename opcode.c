@@ -100,3 +100,22 @@ void swap(stack_t **head, unsigned int line)
 	(*head)->n = (*head)->next->n;
 	(*head)->next->n = tmp;
 }
+void add(stack_t **head, unsigned int line)
+{
+	stack_t *top, *next;
+	
+	if (!head || !*head || !(*head)->next)
+	{
+		free_stack(*head);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+
+	top = *head;
+	next = top->next;
+	top->n += next->n;
+	top->next = next->next;
+	if (next->next)
+		next->next->prev = top;
+	free(next);
+}
