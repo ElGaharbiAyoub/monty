@@ -69,6 +69,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 		{"mod", mod_f},
 		{"pchar", pchar_f},
 		{"pstr", pstr_f},
+		{"rotr", rotr_f},
 		{NULL, NULL}
 	};
 

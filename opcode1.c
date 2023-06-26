@@ -94,3 +94,24 @@ void pstr_f(stack_t **head, unsigned int line)
 	}
 	printf("\n");
 }
+
+void rotr_f(stack_t **head, unsigned int line)
+{
+	stack_t *tmp;
+	int lastV;
+	(void)line;
+
+	tmp = *head;
+	if (*head && (*head)->next)
+	{
+		for (;tmp->next; tmp = tmp->next)
+			;
+
+		lastV = tmp->n;
+
+		for (;tmp->prev; tmp = tmp->prev)
+			tmp->n = tmp->prev->n;
+
+		tmp->n = lastV;
+	}
+}
