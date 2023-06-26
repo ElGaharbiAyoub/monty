@@ -68,8 +68,8 @@ void pchar_f(stack_t **head, unsigned int line)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
-	if (!((*head)->n < 65 && (*head)->n > 90) &&
-	!(((*head)->n < 97) && (*head)->n > 122))
+	if (!((*head)->n > 64 && (*head)->n < 91) &&
+	 !((*head)->n > 96 && (*head)->n < 123))
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 		exit(EXIT_FAILURE);
