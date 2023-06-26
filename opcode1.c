@@ -76,3 +76,21 @@ void pchar_f(stack_t **head, unsigned int line)
 	}
 	printf("%c\n", (char)(*head)->n);
 }
+/**
+ * pstr_f - Prints the string contained in the stack as ASCII characters.
+ * @head: Pointer to a pointer to the head of the stack.
+ * @line: Line number of the pstr command.
+ */
+void pstr_f(stack_t **head, unsigned int line)
+{
+	stack_t *tmp;
+
+	tmp = *head;
+	(void)(line);
+	while (tmp != NULL && tmp->n != 0 && isprint(tmp->n))
+	{
+		printf("%c", tmp->n);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
