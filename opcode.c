@@ -81,3 +81,25 @@ void pop_f(stack_t **head, unsigned int line)
 	*head = dlt->next;
 	free(dlt);
 }
+/**
+ * rotl_f - Rotates the stack to the top
+ * @head: Pointer to the head of the stack
+ * @line: Line number
+ *
+ * Description: The top element of the stack is moved to the bottom.
+ * If the stack is empty or has only one element, nothing is rotated.
+ */
+void rotl_f(stack_t **head, unsigned int line)
+{
+	stack_t *tmp = *head;
+	int temp = tmp->n;
+
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = *head;
+	(*head)->prev = tmp;
+	(*head) = (*head)->next;
+	(*head)->prev = NULL;
+	tmp->next->next = NULL;
+	tmp->n = temp;
+}
