@@ -103,7 +103,7 @@ void rotl_f(stack_t **head, unsigned int line)
 		if (tmp->next)
 			tmp->n = tmp->next->n;
 		else
-			tmp->n = firstVal;
+			tmp->n = firstV;
 		tmp = tmp->next;
 	}
 }
