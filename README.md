@@ -53,7 +53,7 @@ There are multiple `.m` files to choose from in the bytcodes files that run diff
 ## Example
 
 ```
-vagrant@vagrant-ubuntu-trusty-64:~$ cat -e bytecodes/000.m
+elgharbi@ubuntu:~/monty$ cat -e bytecodes/000.m
 push 0$
 push 1$
 push 2$
@@ -63,7 +63,7 @@ push 4$
     push 5    $
       push    6        $
 pall$
-vagrant@vagrant-ubuntu-trusty-64:~$ ./monty ./bytecodes/000.m
+elgharbi@ubuntu:~/monty$ ./monty ./bytecodes/000.m
 3
 2
 1
@@ -75,7 +75,7 @@ vagrant@vagrant-ubuntu-trusty-64:~$ ./monty ./bytecodes/000.m
 2
 1
 0
-vagrant@vagrant-ubuntu-trusty-64:~$
+elgharbi@ubuntu:~/monty$
 ```
 
 ## Other files
