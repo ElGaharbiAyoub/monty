@@ -65,13 +65,13 @@ void pchar_f(stack_t **head, unsigned int line)
 {
 	if (!*head)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty", line);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	if (((*head)->n < 65 && (*head)->n > 90) &&
 	(((*head)->n < 97) && (*head)->n > 122))
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range", line);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", (char)(*head)->n);
