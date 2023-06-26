@@ -1,4 +1,4 @@
-# Monty Language Interpreter
+# Stacks, Queues - LIFO, FIFO
 
 ## About
 
@@ -13,8 +13,9 @@
 
 ## Requirements
 
-- Ubuntu 14.04 LTS
-- GCC version 4.8.4 with flags: -Wall -Werror -Wextra and -pedantic
+- Ubuntu 20.04 LTS
+- GCC with flags: -Wall -Werror -Wextra -pedantic -std=c89
+- Use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
 
 ## Installation
 
