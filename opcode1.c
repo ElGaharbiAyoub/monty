@@ -69,7 +69,7 @@ void pchar_f(stack_t **head, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 	if (!((*head)->n > 64 && (*head)->n < 91) &&
-	 !((*head)->n > 96 && (*head)->n < 123))
+			!((*head)->n > 96 && (*head)->n < 123))
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 		exit(EXIT_FAILURE);
@@ -94,7 +94,12 @@ void pstr_f(stack_t **head, unsigned int line)
 	}
 	printf("\n");
 }
-
+/**
+ * rotr_f - Rotates the stack to the bottom,
+ * moving the top element to the bottom.
+ * @head: Pointer to a pointer to the head of the stack.
+ * @line: Line number of the rotr command.
+ */
 void rotr_f(stack_t **head, unsigned int line)
 {
 	stack_t *tmp;
@@ -104,12 +109,12 @@ void rotr_f(stack_t **head, unsigned int line)
 	tmp = *head;
 	if (*head && (*head)->next)
 	{
-		for (;tmp->next; tmp = tmp->next)
+		for (; tmp->next; tmp = tmp->next)
 			;
 
 		lastV = tmp->n;
 
-		for (;tmp->prev; tmp = tmp->prev)
+		for (; tmp->prev; tmp = tmp->prev)
 			tmp->n = tmp->prev->n;
 
 		tmp->n = lastV;
