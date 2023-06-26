@@ -91,19 +91,19 @@ void pop_f(stack_t **head, unsigned int line)
  */
 void rotl_f(stack_t **head, unsigned int line)
 {
-	if (*head && (*head)->next)
-	{
-		stack_t *tmp = *head;
-		int temp = tmp->n;
-		(void)line;
+	stack_t *tmp;
+	int firstV;
 
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = *head;
-		(*head)->prev = tmp;
-		(*head) = (*head)->next;
-		(*head)->prev = NULL;
-		tmp->next->next = NULL;
-		tmp->n = temp;
+	(void)line;
+	tmp = *stack;
+	if (tmp)
+		firstV = tmp->n;
+	while (tmp)
+	{
+		if (tmp->next)
+			tmp->n = tmp->next->n;
+		else
+			tmp->n = firstVal;
+		tmp = tmp->next;
 	}
 }
