@@ -93,6 +93,7 @@ void rotl_f(stack_t **head, unsigned int line)
 {
 	stack_t *tmp = *head;
 	int temp = tmp->n;
+	(void)line;
 
 	while (tmp->next)
 		tmp = tmp->next;
